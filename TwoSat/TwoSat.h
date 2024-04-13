@@ -29,7 +29,7 @@ class TwoSat {
   void AddClauseAnd(int u, bool f, int v, bool g) {
     AddClauseXor(u, !f, v, g);
   }
-  void dfs(int u) {
+  void Dfs(int u) {
     vis[u] = true;
     for (const int &v : adj[u]) {
       if (!vis[v]) {
@@ -38,7 +38,7 @@ class TwoSat {
     }
     topo.push_back(u);
   }
-  void scc(int u, int id) {
+  void Scc(int u, int id) {
     vis[u] = true;
     comp[u] = id;
     for (const int &v : radj[u]) {
@@ -47,7 +47,7 @@ class TwoSat {
       }
     }
   }
-  bool satifiable() {
+  bool Satifiable() {
     std::fill(vis.begin(), vis.end(), false);
     for (int i = 0; i < n; ++i) {
       if (!vis[i]) {
